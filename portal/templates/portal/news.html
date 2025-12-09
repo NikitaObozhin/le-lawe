@@ -1,0 +1,51 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-section">
+    <h1>Новости</h1>
+    <div style="margin: 2rem 0;">
+        <img src="{% static 'images/news.png' %}" alt="Новости" style="max-width: 60%; border-radius: 25px;">
+    </div>
+    <p>Актуальные новости и события образовательного портала</p>
+
+    <div class="card-grid">
+        <div class="card" onclick="window.location.href='{% url 'news_detail' 1 %}'">
+            <div class="card-title">Новое обновление портала</div>
+            <div class="card-date">15 января 2025</div>
+            <div class="card-text">Мы рады сообщить о запуске новой версии образовательного портала с улучшенным интерфейсом и новыми возможностями. Теперь портал стал еще удобнее и функциональнее.</div>
+        </div>
+
+        <div class="card" onclick="window.location.href='{% url 'news_detail' 2 %}'">
+            <div class="card-title">Добавлены новые задания</div>
+            <div class="card-date">10 января 2025</div>
+            <div class="card-text">В банк заданий добавлено более 50 новых задач по различным дисциплинам для практики и подготовки. Задания охватывают различные уровни сложности.</div>
+        </div>
+
+        <div class="card" onclick="window.location.href='{% url 'news_detail' 3 %}'">
+            <div class="card-title">Открыт новый курс</div>
+            <div class="card-date">5 января 2025</div>
+            <div class="card-text">Приглашаем всех желающих на новый образовательный курс "Основы программирования". Курс включает в себя практические задания и теоретические материалы.</div>
+        </div>
+
+        <div class="card" onclick="window.location.href='{% url 'news_detail' 4 %}'">
+            <div class="card-title">Обновление библиотеки</div>
+            <div class="card-date">28 декабря 2024</div>
+            <div class="card-text">В библиотеку добавлены новые учебные материалы и книги по различным предметам. Теперь доступно более 200 учебных пособий.</div>
+        </div>
+
+        <div class="card" onclick="window.location.href='{% url 'news_detail' 5 %}'">
+            <div class="card-title">Веб-семинар по математике</div>
+            <div class="card-date">20 декабря 2024</div>
+            <div class="card-text">Приглашаем на веб-семинар по решению сложных математических задач. Семинар пройдет в онлайн формате.</div>
+        </div>
+
+        <div class="card" onclick="window.location.href='{% url 'news_detail' 6 %}'">
+            <div class="card-title">Новые ресурсы для изучения</div>
+            <div class="card-date">15 декабря 2024</div>
+            <div class="card-text">В разделе ресурсов добавлены новые материалы для самостоятельного изучения, включая видеоуроки и интерактивные задания.</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

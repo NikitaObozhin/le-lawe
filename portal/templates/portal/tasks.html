@@ -1,0 +1,60 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-section">
+    <h1>Банк заданий</h1>
+    <div style="margin: 2rem 0;">
+        <img src="{% static 'images/paltform.jpg' %}" alt="Банк заданий" style="max-width: 60%; border-radius: 25px;">
+    </div>
+    <p>Здесь вы найдете различные задания и задачи для практики и подготовки к экзаменам</p>
+
+    <div class="info-box">
+        <h3>Категории заданий</h3>
+        <p>Задания разделены по категориям и уровням сложности для удобного поиска и изучения.</p>
+    </div>
+
+    <h2>Математика</h2>
+    <div class="card-grid">
+        <div class="card" onclick="window.location.href='{% url 'task_detail' 1 %}'">
+            <div class="card-title">Задание 1: Производные</div>
+            <div class="card-date">Уровень: Средний</div>
+            <div class="card-text">Решение задач на нахождение производных функций различных типов. Включает 10 задач с решениями.</div>
+        </div>
+        <div class="card" onclick="window.location.href='{% url 'task_detail' 2 %}'">
+            <div class="card-title">Задание 2: Интегралы</div>
+            <div class="card-date">Уровень: Продвинутый</div>
+            <div class="card-text">Задачи на вычисление определенных и неопределенных интегралов. Содержит подробные решения.</div>
+        </div>
+    </div>
+
+    <h2>Программирование</h2>
+    <div class="card-grid">
+        <div class="card" onclick="window.location.href='{% url 'task_detail' 3 %}'">
+            <div class="card-title">Задание 3: Массивы и циклы</div>
+            <div class="card-date">Уровень: Начальный</div>
+            <div class="card-text">Основы работы с массивами и циклами в различных языках программирования. Практические примеры.</div>
+        </div>
+        <div class="card" onclick="window.location.href='{% url 'task_detail' 4 %}'">
+            <div class="card-title">Задание 4: Алгоритмы</div>
+            <div class="card-date">Уровень: Средний</div>
+            <div class="card-text">Изучение основных алгоритмов сортировки и поиска. Реализация и анализ сложности.</div>
+        </div>
+    </div>
+
+    <h2>Физика</h2>
+    <div class="card-grid">
+        <div class="card" onclick="window.location.href='{% url 'task_detail' 5 %}'">
+            <div class="card-title">Задание 5: Механика</div>
+            <div class="card-date">Уровень: Средний</div>
+            <div class="card-text">Задачи на кинематику и динамику. Решение задач на движение тел и силы.</div>
+        </div>
+        <div class="card" onclick="window.location.href='{% url 'task_detail' 6 %}'">
+            <div class="card-title">Задание 6: Термодинамика</div>
+            <div class="card-date">Уровень: Продвинутый</div>
+            <div class="card-text">Задачи на законы термодинамики, тепловые процессы и газовые законы.</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

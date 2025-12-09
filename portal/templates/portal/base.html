@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W8LMML2B');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105745527', 'ym');
+
+        ym(105745527, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105745527" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ title|default:"Образовательный портал" }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ description|default:"Образовательный портал с новостями, банком заданий и учебными материалами" }}{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}{{ keywords|default:"образование, обучение, новости, задания, задачи, учебные материалы" }}{% endblock %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8LMML2B"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo-wrapper">
+                        <div class="logo">Образовательный портал</div>
+                        <button class="burger-menu-toggle" id="burger-toggle" aria-label="Меню">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                    <div class="user-counter">
+                        <span id="user-count">Загрузка...</span> пользователей онлайн
+                    </div>
+                    <nav class="main-nav" id="main-nav">
+                        <ul>
+                            <li><a href="{% url 'index' %}">Главная</a></li>
+                            <li><a href="{% url 'news' %}">Новости</a></li>
+                            <li><a href="{% url 'tasks' %}">Банк заданий</a></li>
+                            <li><a href="{% url 'courses' %}">Курсы</a></li>
+                            <li><a href="{% url 'library' %}">Библиотека</a></li>
+                            <li><a href="{% url 'resources' %}">Ресурсы</a></li>
+                            <li><a href="{% url 'about' %}">О портале</a></li>
+                            <li><a href="{% url 'faq' %}">FAQ</a></li>
+                            <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Образовательный портал. Все права защищены.</p>
+            <p>Защита от копирования контента активирована</p>
+            <div style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">
+                <p><strong>Description:</strong> {{ description|default:"Образовательный портал с новостями, банком заданий и учебными материалами" }}</p>
+                <p><strong>Keywords:</strong> {{ keywords|default:"образование, обучение, новости, задания, задачи, учебные материалы" }}</p>
+            </div>
+        </div>
+    </footer>
+
+    {% csrf_token %}
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <script>
+        // Бургер-меню
+        const burgerToggle = document.getElementById('burger-toggle');
+        const mainNav = document.getElementById('main-nav');
+        const menuOverlay = document.getElementById('menu-overlay');
+
+        function toggleMenu() {
+            burgerToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+        }
+
+        burgerToggle.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // Закрытие меню при клике на ссылку
+        const navLinks = document.querySelectorAll('.main-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 1024) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Закрытие меню при изменении размера окна
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                burgerToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Защита от копирования
+        document.addEventListener('copy', function(e) {
+            e.clipboardData.setData('text/plain', 'Копирование контента запрещено');
+            e.preventDefault();
+        });
+
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            // Блокировка Ctrl+C (копирование) и Ctrl+X (вырезание)
+            // F12 и другие инструменты разработчика не блокируются для удобства разработки
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 88)) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Счетчик пользователей в реальном времени
+        function updateUserCount() {
+            // Получаем CSRF токен
+            const csrftoken = getCookie('csrftoken') || document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+            
+            // Отправляем запрос на обновление активности и получение количества пользователей
+            fetch('{% url "update_activity" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken
+                },
+                credentials: 'same-origin',
+                body: JSON.stringify({})
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.count !== undefined) {
+                    document.getElementById('user-count').textContent = data.count;
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка обновления счетчика:', error);
+                // В случае ошибки показываем последнее известное значение или 0
+                const currentCount = parseInt(document.getElementById('user-count').textContent) || 0;
+                if (currentCount > 0) {
+                    document.getElementById('user-count').textContent = currentCount;
+                } else {
+                    document.getElementById('user-count').textContent = '0';
+                }
+            });
+        }
+
+        // Функция для получения CSRF токена
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        // Обновление при загрузке страницы
+        updateUserCount();
+        
+        // Обновление каждые 5 секунд
+        setInterval(updateUserCount, 5000);
+        
+        // Также обновляем при активности пользователя (движение мыши, клики)
+        let activityTimeout;
+        ['mousemove', 'click', 'keypress', 'scroll'].forEach(eventType => {
+            document.addEventListener(eventType, function() {
+                clearTimeout(activityTimeout);
+                activityTimeout = setTimeout(updateUserCount, 1000);
+            });
+        });
+        
+        // Обновление при возврате на вкладку
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                updateUserCount();
+            }
+        });
+    </script>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
+

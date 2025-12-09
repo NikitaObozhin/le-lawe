@@ -1,0 +1,85 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-section">
+    <h1>Добро пожаловать на образовательный портал!</h1>
+    <div style="margin: 2rem 0;">
+        <img src="{% static 'images/main.jpg' %}" alt="Образовательный портал" style="max-width: 60%; border-radius: 25px;">
+    </div>
+    <p>Мы рады приветствовать вас на нашем образовательном портале, где вы найдете актуальные новости, банк заданий, учебные материалы и многое другое.</p>
+    
+    <div class="highlight">
+        <h2>Наши возможности:</h2>
+        <ul>
+            <li>Актуальные новости в сфере образования</li>
+            <li>Банк заданий с различными задачами</li>
+            <li>Образовательные курсы и программы</li>
+            <li>Библиотека учебных материалов</li>
+            <li>Дополнительные ресурсы для обучения</li>
+        </ul>
+    </div>
+
+    <h2>Последние новости</h2>
+    <div class="card-grid">
+        <div class="card" onclick="window.location.href='{% url 'news_detail' 1 %}'">
+            <img src="{% static 'images/news.png' %}" alt="Новости" style="width: 100%; margin-bottom: 1rem; border-radius: 25px;">
+            <div class="card-title">Новое обновление портала</div>
+            <div class="card-date">15 января 2025</div>
+            <div class="card-text">Мы рады сообщить о запуске новой версии образовательного портала с улучшенным интерфейсом и новыми возможностями.</div>
+        </div>
+        <div class="card" onclick="window.location.href='{% url 'news_detail' 2 %}'">
+            <img src="{% static 'images/news.png' %}" alt="Задания" style="width: 100%; margin-bottom: 1rem; border-radius: 25px;">
+            <div class="card-title">Добавлены новые задания</div>
+            <div class="card-date">10 января 2025</div>
+            <div class="card-text">В банк заданий добавлено более 50 новых задач по различным дисциплинам для практики и подготовки.</div>
+        </div>
+        <div class="card" onclick="window.location.href='{% url 'news_detail' 3 %}'">
+            <img src="{% static 'images/course.webp' %}" alt="Курсы" style="width: 100%; margin-bottom: 1rem; border-radius: 25px;">
+            <div class="card-title">Открыт новый курс</div>
+            <div class="card-date">5 января 2025</div>
+            <div class="card-text">Приглашаем всех желающих на новый образовательный курс "Основы программирования".</div>
+        </div>
+    </div>
+
+    <h2>Популярные задания</h2>
+    <div class="card-grid">
+        <div class="card" onclick="window.location.href='{% url 'task_detail' 1 %}'">
+            <div class="card-title">Задание по математике</div>
+            <div class="card-date">Уровень: Средний</div>
+            <div class="card-text">Решение задач на производные и интегралы.</div>
+        </div>
+        <div class="card" onclick="window.location.href='{% url 'task_detail' 2 %}'">
+            <div class="card-title">Задание по программированию</div>
+            <div class="card-date">Уровень: Начальный</div>
+            <div class="card-text">Основы работы с массивами и циклами.</div>
+        </div>
+        <div class="card" onclick="window.location.href='{% url 'task_detail' 3 %}'">
+            <div class="card-title">Задание по физике</div>
+            <div class="card-date">Уровень: Продвинутый</div>
+            <div class="card-text">Задачи на механику и термодинамику.</div>
+        </div>
+    </div>
+
+    <h2>Счетчики посещений</h2>
+    <div class="counters">
+        <div class="counter-form">
+            <h3>Google Analytics</h3>
+            <!-- Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-XXXXXXXXXX');
+            </script>
+            <p>Счетчик Google Analytics установлен</p>
+        </div>
+        <div class="counter-form">
+            <h3>Яндекс.Метрика</h3>
+            <p>Счетчик Яндекс.Метрика установлен (ID: 105745527)</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,22 @@
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Disallow admin panel and static files
+Disallow: /admin/
+Disallow: /staticfiles/
+
+# Allow indexing of main pages
+Allow: /
+Allow: /news/
+Allow: /tasks/
+Allow: /about/
+Allow: /contacts/
+Allow: /resources/
+Allow: /courses/
+Allow: /library/
+Allow: /faq/
+
+# Sitemap location
+Sitemap: https://le-lawe.ru/sitemap.xml
+

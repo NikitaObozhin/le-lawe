@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W8LMML2B');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105745527', 'ym');
+
+        ym(105745527, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105745527" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title|default:"403 - Доступ запрещен" }}</title>
+    <meta name="description" content="{{ description|default:'Доступ запрещен - Образовательный портал' }}">
+    <meta name="keywords" content="{{ keywords|default:'403, доступ запрещен, ошибка доступа' }}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .error-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #707dff;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        .error-message {
+            font-size: 2rem;
+            color: #707dff;
+            margin-bottom: 1rem;
+        }
+        .error-description {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .error-icon {
+            font-size: 10rem;
+            margin-bottom: 2rem;
+            opacity: 0.1;
+        }
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            .error-message {
+                font-size: 1.5rem;
+            }
+            .error-description {
+                font-size: 1rem;
+            }
+            .error-icon {
+                font-size: 6rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 4rem;
+            }
+            .error-message {
+                font-size: 1.2rem;
+            }
+            .error-description {
+                font-size: 0.9rem;
+            }
+            .error-icon {
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8LMML2B"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo">Образовательный портал</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="error-container">
+                <div class="error-icon">🚫</div>
+                <div class="error-code">403</div>
+                <h1 class="error-message">Доступ запрещен</h1>
+                <p class="error-description">
+                    У вас нет доступа к этой странице. Возможно, требуется авторизация 
+                    или у вас недостаточно прав для просмотра данного контента.
+                </p>
+                <div class="error-actions">
+                    <a href="{% url 'index' %}" class="btn">Вернуться на главную</a>
+                    <a href="javascript:history.back()" class="btn" style="background: #999;">Назад</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Образовательный портал. Все права защищены.</p>
+            <div style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">
+                <p><strong>Description:</strong> {{ description|default:"Доступ запрещен - Образовательный портал" }}</p>
+                <p><strong>Keywords:</strong> {{ keywords|default:"403, доступ запрещен, ошибка доступа" }}</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

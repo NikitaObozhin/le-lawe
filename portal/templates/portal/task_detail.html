@@ -1,0 +1,60 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+<div class="content-section">
+    <div class="breadcrumb">
+        <a href="{% url 'index' %}">Главная</a> / <a href="{% url 'tasks' %}">Банк заданий</a> / Задание {{ task_id }}
+    </div>
+
+    <h1>Задание {{ task_id }}</h1>
+
+    {% if task_id == 1 %}
+    <h2>Производные функций</h2>
+    <div class="card-date">Уровень: Средний | Категория: Математика</div>
+    <p><strong>Описание:</strong> В этом задании вам предстоит решить задачи на нахождение производных различных функций.</p>
+    <h3>Задача 1</h3>
+    <p>Найдите производную функции f(x) = x³ + 2x² - 5x + 1</p>
+    <div class="highlight">
+        <strong>Решение:</strong> f'(x) = 3x² + 4x - 5
+    </div>
+    <h3>Задача 2</h3>
+    <p>Найдите производную функции f(x) = sin(x) · cos(x)</p>
+    <div class="highlight">
+        <strong>Решение:</strong> Используя правило произведения: f'(x) = cos²(x) - sin²(x) = cos(2x)
+    </div>
+    {% elif task_id == 2 %}
+    <h2>Интегралы</h2>
+    <div class="card-date">Уровень: Продвинутый | Категория: Математика</div>
+    <p><strong>Описание:</strong> Задачи на вычисление определенных и неопределенных интегралов.</p>
+    <h3>Задача 1</h3>
+    <p>Вычислите интеграл ∫(2x + 3)dx</p>
+    <div class="highlight">
+        <strong>Решение:</strong> ∫(2x + 3)dx = x² + 3x + C
+    </div>
+    {% elif task_id == 3 %}
+    <h2>Массивы и циклы</h2>
+    <div class="card-date">Уровень: Начальный | Категория: Программирование</div>
+    <p><strong>Описание:</strong> Основы работы с массивами и циклами в программировании.</p>
+    <h3>Задача 1</h3>
+    <p>Напишите программу, которая находит сумму всех элементов массива.</p>
+    <div class="highlight">
+        <strong>Решение (Python):</strong><br>
+        arr = [1, 2, 3, 4, 5]<br>
+        sum = 0<br>
+        for num in arr:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;sum += num<br>
+        print(sum)
+    </div>
+    {% else %}
+    <h2>Задание {{ task_id }}</h2>
+    <div class="card-date">Уровень: Средний</div>
+    <p><strong>Описание:</strong> Подробное описание задания {{ task_id }}.</p>
+    <p>Здесь будет размещена подробная информация о задании, условие задач и их решения.</p>
+    {% endif %}
+
+    <div style="margin-top: 2rem;">
+        <a href="{% url 'tasks' %}" class="btn">Вернуться к списку заданий</a>
+    </div>
+</div>
+{% endblock %}
+
