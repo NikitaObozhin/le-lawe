@@ -140,17 +140,56 @@ nav.main-nav a:hover {
 
 @media (min-width: 1025px) {
     .header-left {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    
+    .logo-wrapper {
+        width: 100%;
+        display: flex;
         justify-content: space-between;
+        align-items: center;
     }
     
     .user-counter {
         position: absolute;
         right: 0;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 0;
+        transform: none;
         align-self: auto;
+    }
+    
+    nav.main-nav {
+        display: block !important;
+        position: static !important;
+        width: 100%;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
+        margin-top: 0.5rem;
+    }
+    
+    nav.main-nav ul {
+        flex-direction: row;
+        padding: 0;
+        gap: 1.5rem;
+    }
+    
+    nav.main-nav li {
+        width: auto;
+        border-bottom: none;
+    }
+    
+    nav.main-nav a {
+        display: inline-block;
+        padding: 0;
+        width: auto;
+    }
+    
+    nav.main-nav a:hover {
+        background: transparent;
+        text-decoration: underline;
     }
 }
 
